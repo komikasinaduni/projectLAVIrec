@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project L.A.V.I.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="title">PROJECT L.A.V.I.</h1>
+        <p class="subtitle">(Live Agricultural Vertical Innovation)</p>
+        <p class="subtitle">Prototype built • Pilot ready • Seeking collaborators & mentors</p>
+        <div class="hero-actions">
+          <a class="btn" href="#about">Learn more</a>
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="section about">
+        <h2 class="section-title">About / Concept</h2>
+        <div class="bubbles two">
+          <div class="bubble">Root vegetables are difficult to grow in standard aeroponic systems because existing supports restrict growth or require costly substrate. This limits yields for small farmers in resource-constrained areas.</div>
+          <div class="bubble">PROJECT L.A.V.I. uses a modular mesh-based support system allowing roots to expand freely while receiving precise nutrient mist, enabling higher yields and low-cost deployment.</div>
+        </div>
+      </section>
+
+      <section id="proof" class="section proof">
+        <h2 class="section-title">Proof of Concept</h2>
+        <div class="bubbles three images">
+          <div class="bubble image">Image 1</div>
+          <div class="bubble image">Image 2</div>
+          <div class="bubble image">Image 3</div>
+        </div>
+      </section>
+
+      <section id="impact" class="section impact">
+        <h2 class="section-title">Impact / Vision</h2>
+        <div class="content">
+          <p>✰ Who benefits: Small-scale farmers in underdeveloped regions, their families, and local communities.</p>
+          <p>✰ Sustainable cycle: 5% of crop revenue goes back into maintaining and expanding the system, funding community infrastructure.</p>
+          <p>✰ Long-term goals and expansion plans: Scale units to 1,000+ farmers, optimize for multiple root crops, create open-source guides for replication.</p>
+        </div>
+      </section>
+
+      <section id="help" class="section help">
+        <h2 class="section-title">How to Help / Get Involved</h2>
+        <ul>
+          <li>Collaborators: engineering students, CAD designers, makerspace folks.</li>
+          <li>Advisors / mentors: professors or researchers.</li>
+          <li>Donors or funders: contact us for sponsorships.</li>
+        </ul>
+        <div class="contact-card">
+          <h3 class="card-title">Contact Us</h3>
+          <form class="contact-form" action="https://formspree.io/f/mnjgzkve" method="POST">
+            <input type="hidden" name="_subject" value="New message from Project L.A.V.I." />
+            <input type="hidden" name="_next" value="/" />
+
+            <div class="form-row two-col">
+              <label>
+                <span class="field-label">First name</span>
+                <input name="firstName" placeholder="First name" required>
+              </label>
+              <label>
+                <span class="field-label">Last name</span>
+                <input name="lastName" placeholder="Last name">
+              </label>
+            </div>
+
+            <label class="full-width">
+              <span class="field-label">Email address</span>
+              <input name="email" type="email" placeholder="Eg. example@email.com" required>
+            </label>
+
+            <label class="full-width">
+              <span class="field-label">Message</span>
+              <textarea name="message" placeholder="Please enter your comments..." required></textarea>
+            </label>
+
+            <button class="btn submit" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="social">
+          <a class="social-link" href="mailto:kkomalini@gmail.com" aria-label="Email">
+            <i class='bx bx-envelope'></i>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/karthika-komalini-kasinaduni-39a257343/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class='bx bxl-linkedin'></i>
+          </a>
+          <a class="social-link" href="https://github.com/komikasinaduni" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class='bx bxl-github'></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div id="infoOverlay" class="info-overlay hidden"></div>
+    <script>
+      (function(){
+        const btn = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const isLight = stored === 'light' || (!stored && prefersLight);
+        if(isLight) {
+          root.classList.add('light-theme');
+          if(btn) btn.textContent = '☀️';
+        } else {
+          if(btn) btn.textContent = '🌙';
+        }
+        if(btn) btn.addEventListener('click', function(){
+          const active = root.classList.toggle('light-theme');
+          localStorage.setItem('theme', active ? 'light' : 'dark');
+          this.textContent = active ? '☀️' : '🌙';
+        });
+      })();
+    </script>
+  </body>
+</html>
